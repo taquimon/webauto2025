@@ -58,6 +58,7 @@ Some other clasic test automation antipatterns:
 - **Sleeping for arbitrary amounts of time**. Existing pattern: polling, explicit/implicit waits.
 - **Assertions as part of PageObject class** Existing pattern:  PageObject just provides status of the element to the caller. The caller itself will verify the status
 - **Different Stack The automated tests (also test frameworks) are implemented using a different software stack than the SUT uses**. *
+- Client force to use a framework only for its likes  and do  not how limits has.
 
 ## Refs.:
 

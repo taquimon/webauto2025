@@ -4,6 +4,16 @@
 ## Record and Play
 Record and playback testing is the process where testers record their actions as they manually perform a test on the application’s user interface. As such, it is a form of automated testing since this process is performed by an automated testing tool.
 
+### Where is Record and Playback Testing Today?
+
+- Limited scope
+- Fragile scripts
+- Lack of integration
+- Cross-browser issues
+- Limited programming logic
+- UI dependency
+
+
 ## Libraries
 Libraries are collections of pre-written code that can be used to perform specific tasks. They are used to reduce the amount of code that needs to be written and to make the code more reusable.
 
@@ -78,16 +88,6 @@ awesome_package, also known as import packages) into a subdirectory. This subdir
 </pre>
 
 
-## Helpers vs Utils
-
-|              | Helper Functions/Classes                                     | Utility Functions/Classes                                    |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Purpose      | Provide support or aid to other parts of the program         | Perform common or generic operations that are not tied to any specific part of the program |
-| Scope        | Typically used within a specific module or part of the program | Can be used throughout the program or in multiple programs   |
-| Dependencies | Often depend on other parts of the program or external libraries | Usually independent of other parts of the program            |
-| Examples     | Form validation functions, data formatting classes           | String manipulation functions, math libraries                |
-
-
 ## Setting Up Web Automation with Python
 
 Python is a popular and versatile programming language. Combining pytest, nose2 with Python allows for efficient and readable
@@ -105,11 +105,23 @@ python3.12 -m venv venv
 > activate venv
 
 ```shell
-venv/bin/activate
+. venv/bin/activate
 ```
+
+> verify you are in virtual environment
+
+```shell
+(venv) predator@avp ~/p/playpy>
+```
+
+
 
 # Ref.:
 
 > Layouts: https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/
 
 > Test Architecture: https://blog.testproject.io/2020/06/29/design-patterns-in-test-automation/
+
+> Why no-code test dont work: https://testrigor.com/blog/why-no-code-low-code-test-automation-tools-dont-work/
+
+> Record and playback testing: https://testrigor.com/blog/record-and-playback-testing/
