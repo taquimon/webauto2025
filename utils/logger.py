@@ -1,7 +1,11 @@
 """
+Docstring
 logger.py
 Configuration of a logger file
 """
+'''
+Docstring 
+'''
 import logging
 import os
 import pathlib
