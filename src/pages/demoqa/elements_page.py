@@ -37,6 +37,7 @@ class ElementsPage(BasePage):
         self.enter_text(self.user_name_input, user_name)
     
     def click_submit_button(self):
+        self.scroll_to_element(self.submit_button)
         self.click_element(self.submit_button)
     
     def get_user_name(self):

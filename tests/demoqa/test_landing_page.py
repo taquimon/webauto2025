@@ -7,21 +7,15 @@ from utils.logger import get_logger
 
 logger = get_logger(__name__)
 class TestDemoQALandingPage:
+        
     
-    @classmethod
-    def setup_class(self):
-        # start the session
-        self.driver = webdriver.Chrome()
-        logger.info("Starting the session")
-        self.driver.implicitly_wait(10)
-    
-    def test_demoqa_landing_page(self):
+    def test_demoqa_landing_page(self, driver):
         """
         Test that the demoqa landing page is displayed with all options
         """                
         
         # create the page object
-        landing_page = LandingPage(self.driver)
+        landing_page = LandingPage(driver)
         
         # verify the elements displayed
         logger.info("Verifying the elements displayed")
@@ -31,11 +25,4 @@ class TestDemoQALandingPage:
         assert landing_page.get_elements_option().text == "Elements", "Elements option is not displayed"
         assert landing_page.get_forms_option().text == "Forms", "Forms option is not displayed"
         assert landing_page.get_alerts_frames_windows_option().text == "Alerts, Frame & Windows", "Alerts, Frame & Windows option is not displayed"
-                
-        
-    
-    @classmethod
-    def teardown_class(self):
-        # Close the browser
-        logger.info("Closing the browser")
-        self.driver.quit()
+                            

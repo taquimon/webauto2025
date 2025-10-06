@@ -38,5 +38,7 @@ class BasePage:
 		time.sleep(effect_time)
 		apply_style(original_style)
 		
-		
+	def scroll_to_element(self, by_locator):
+		element = self.find_element(by_locator)
+		self.driver.execute_script("arguments[0].scrollIntoView();", element)
 		

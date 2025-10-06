@@ -1,5 +1,6 @@
 import logging
 import pytest
+from selenium import webdriver
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -15,9 +16,26 @@ def first_entry(request):
 
 # Arrange
 @pytest.fixture(scope="class")
-def order(first_entry):
+def driver():
+    if pytest.browser == "chrome":
+        driver = webdriver.Chrome()
+    elif pytest.browser == "firefox":
+        driver = webdriver.Firefox()
+    elif pytest.browser == "edge":
+        driver = webdriver.Edge()
+    elif pytest.browser == "safari":
+        driver = webdriver.Safari()
+    else:
+        raise ValueError(f"Browser {pytest.browser} is not supported")
     
-    return first_entry + "b"
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    
+    # clean up
+    yield driver
+    
+    driver.quit()
+    
 
 
 def pytest_addoption(parser):
