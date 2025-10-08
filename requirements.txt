@@ -1,2 +1,7 @@
 pytest==8.4.2
 selenium==4.35.0
+python-dotenv==1.1.1
+pytest-md-report==0.7.0
+pytest-playwright==0.7.1
+playwright>=1.55.0
+allure-pytest==2.15.0

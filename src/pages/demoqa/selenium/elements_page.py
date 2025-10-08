@@ -1,8 +1,6 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-import logging
 from utils.logger import get_logger
-from pages.demoqa.base_page import BasePage
+from pages.demoqa.selenium.base_page import BasePage
 
 logger = get_logger(__name__)
 

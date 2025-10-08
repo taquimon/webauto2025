@@ -17,16 +17,16 @@ def first_entry(request):
 # Arrange
 @pytest.fixture(scope="class")
 def driver():
-    if pytest.browser == "chrome":
+    if pytest.browser_type == "chrome":
         driver = webdriver.Chrome()
-    elif pytest.browser == "firefox":
+    elif pytest.browser_type == "firefox":
         driver = webdriver.Firefox()
-    elif pytest.browser == "edge":
+    elif pytest.browser_type == "edge":
         driver = webdriver.Edge()
-    elif pytest.browser == "safari":
+    elif pytest.browser_type == "safari":
         driver = webdriver.Safari()
     else:
-        raise ValueError(f"Browser {pytest.browser} is not supported")
+        raise ValueError(f"Browser {pytest.browser_type} is not supported")
     
     driver.maximize_window()
     driver.implicitly_wait(10)
@@ -35,15 +35,17 @@ def driver():
     yield driver
     
     driver.quit()
-    
 
+@pytest.fixture()
+def env(request):
+    return request.config.getoption("--env")
 
 def pytest_addoption(parser):
     parser.addoption(
         '--env', action='store', default='development', help="Environment where the tests are executed"        
     )
     parser.addoption(
-        '--browser', action='store', default='chrome', help="Browser to run the web automation tests"
+        '--browser_type', action='store', default='chrome', help="Browser to run the web automation tests"
     )
 
 def pytest_configure(config):

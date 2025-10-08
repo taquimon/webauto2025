@@ -1,4 +1,12 @@
 ## Execute pytest tests
+if there is the error
+```shell
+E   ModuleNotFoundError: No module named 'pages'
+```
+you need to add your path to PYTHONPATH
+```shell
+export PYTHONPATH="/home/xenomorph/ETJala/WebAutomation/webauto2025:/home/xenomorph/ETJala/WebAutomation/webauto2025/src"
+```
 > command example
 
 ```shell
@@ -87,6 +95,7 @@ then execute command
 > Install package pytest-excel
 ```shell
  pip install pytest-excel
+ pip install openpyxl
 ```
 
 then execute command
@@ -151,7 +160,6 @@ You need to install package pymsteams
 ```shell
 pip install pymsteams
 ```
-
 
 ## References
 

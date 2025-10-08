@@ -1,0 +1,4 @@
+BASE_URL:
+	development: demoqa.com
+	staging: staging.demoqa.com
+    production: production.demoqa.com

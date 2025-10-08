@@ -1,7 +1,4 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-import time
-from pages.demoqa.landing_page import LandingPage
+from pages.demoqa.selenium.landing_page import LandingPage
 from utils.logger import get_logger
 
 

@@ -1,9 +1,8 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-import logging
 from utils.logger import get_logger
-from pages.demoqa.base_page import BasePage
-from pages.demoqa.elements_page import ElementsPage
+from pages.demoqa.selenium.base_page import BasePage
+from pages.demoqa.selenium.elements_page import ElementsPage
+from config.config import BASE_URL
 
 logger = get_logger(__name__)
 
@@ -13,9 +12,9 @@ class LandingPage(BasePage):
     forms_option = (By.XPATH, "//h5[text()='Forms']")    
     alerts_frames_windows_option = (By.XPATH, "//h5[text()='Alerts, Frame & Windows']")    
     
-    def __init__(self, driver):
+    def __init__(self, driver, environment):
         super().__init__(driver)        
-        self.url = "http://demoqa.com"
+        self.url = BASE_URL[environment]
         self.driver.get(self.url)
         logger.info("Navigating to the page: " + self.url)
 
