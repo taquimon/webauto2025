@@ -50,4 +50,4 @@ def pytest_addoption(parser):
 
 def pytest_configure(config):
     pytest.env = config.getoption("env")
-    pytest.browser = config.getoption("browser")
+    pytest.browser_type = config.getoption("browser_type")
