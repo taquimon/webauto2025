@@ -144,6 +144,66 @@ For example, for locator.click(), Playwright will ensure that:
 - element Receives Events, as in not obscured by other elements
 - element is Enabled
 
+
+### Pytest Playwright Class
+> Example
+
+```python
+from playwright.sync_api import Page, Locator
+
+class ElementsPagePlay:
+    def __init__(self, page: Page):
+        self.page = page
+        # locators
+        self.text_box : Locator = page.get_by_role("list").get_by_text("Text Box")
+        self.username : Locator = page.get_by_role("textbox", name="Full Name")
+
+    def navigate(self):
+        self.page.goto("http://demoqa.com/elements")
+
+    def click_on_text_box(self):
+        # actions
+        self.text_box.click()
+
+    def enter_user_name(self, username):
+        # actions
+        self.username.fill(username)
+```
+
+### POM with Playwright
+
+> Basic Example
+
+```python
+from playwright.sync_api import Page, Locator
+
+class ElementsPagePlay:
+    def __init__(self, page: Page):
+        self.page = page
+
+        self.text_box : Locator = page.get_by_role("list").get_by_text("Text Box")
+        self.username : Locator = page.get_by_role("textbox", name="Full Name")
+
+    def navigate(self):
+        self.page.goto("http://demoqa.com/elements")
+
+    def click_on_text_box(self):
+        self.text_box.click()
+
+    def enter_user_name(self, username):
+        self.username.fill(username)
+```
+
+
+## Task 3
+
+- Create a POM for your website using Playwright.
+- Create base page class.
+- Create a test that uses the POM.
+- Run the test.
+- Create a report.
+
+
 ## Refs.:
 
 > Playwright https://playwright.dev/python/docs/writing-tests

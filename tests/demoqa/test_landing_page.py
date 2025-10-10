@@ -6,13 +6,13 @@ logger = get_logger(__name__)
 class TestDemoQALandingPage:
         
     
-    def test_demoqa_landing_page(self, driver):
+    def test_demoqa_landing_page(self, driver, env):
         """
         Test that the demoqa landing page is displayed with all options
         """                
-        
+        logger.info("Environment: %s", env)
         # create the page object
-        landing_page = LandingPage(driver)
+        landing_page = LandingPage(driver, env)
         
         # verify the elements displayed
         logger.info("Verifying the elements displayed")

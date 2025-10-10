@@ -21,7 +21,7 @@ class TestExamplePyTest:
         logger.debug("Setup class")
         self.environment = pytest.env
         logger.debug("Environment: %s", self.environment)    
-        self.browser = pytest.browser
+        self.browser = pytest.browser_type
         logger.debug("Browser: %s", self.browser)
 
     # fixture
@@ -44,8 +44,8 @@ class TestExamplePyTest:
         """
         logger.debug("test two: %s", first_entry)
 
-    def test_three(self, order):
-        logger.debug("test three: %s", order)
+    def test_three(self, env):
+        logger.debug("test three: %s", env)
 
     # fixture
     def teardown_method(self):
