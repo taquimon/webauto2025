@@ -2,14 +2,14 @@ import re
 import time
 
 from playwright.sync_api import Page, expect
-from pages.demoqa.play.elemenst_page_play import ElementsPagePlay
-from pages.demoqa.play.forms_page_play import FormsPagePlay
+from pages.demoqa.play.landing_page_play import LandingPagePlay
 
 class TestFormsPagePlay:
 
     def test_forms(self, page: Page) -> None:
-        forms_page = FormsPagePlay(page)
-        forms_page.navigate()        
+        landing_page = LandingPagePlay(page)
+        landing_page.navigate()        
+        forms_page = landing_page.click_on_forms()
         forms_page.click_on_practice_form_menu()
         forms_page.enter_first_name("Edwin")        
         forms_page.enter_last_name("Taquichiri")        

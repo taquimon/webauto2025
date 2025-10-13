@@ -1,5 +1,5 @@
 from playwright.sync_api import Page, Locator
-from pages.demoqa.play.pase_page_play import BasePagePlay
+from pages.demoqa.play.base_page_play import BasePagePlay
 
 class ElementsPagePlay(BasePagePlay):
     def __init__(self, page: Page):
