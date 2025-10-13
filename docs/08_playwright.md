@@ -203,6 +203,16 @@ class ElementsPagePlay:
 - Run the test.
 - Create a report.
 
+## Playwright Sync vs Async
+
+|Aspect|Sync|Async|
+|---|---|---|
+|Execution Style|wait for each step to finish before moving to the next step|Execute steps concurrently|
+|Code Style| Pytest|Async and await keywords|
+|Paralle Execution  |Not posible|Multiple Browsers, tabs|
+|Performance|Slower|Faster|
+|Learning Curve|Easier to understand for beginners|Understand Async/await and event loops|
+|Real Time cases|Simple Test case, Single URL|Complex Test case, Multiple Browsers,tabs,devices Background tasks|
 
 ## Refs.:
 
