@@ -3,22 +3,26 @@ from utils.logger import get_logger
 from pages.demoqa.selenium.base_page import BasePage
 
 logger = get_logger(__name__)
-
 class ElementsPage(BasePage):
+    
+    text_box_menu_item = (By.ID, "item-0")
+    check_box_menu_item = (By.ID, "item-1") 
+
+
+
+# page Fragement
+class ElementsTextBoxPage(BasePage):
 
     # locators
     # text box menu item
-    text_box_menu_item = (By.ID, "item-0")
+    
     user_name_input = (By.ID, "userName")
     email_input = (By.ID, "email")
     current_address_input = (By.ID, "currentAddress")
     permanent_address_input = (By.ID, "permanentAddress")
     submit_button = (By.ID, "submit")
     user_name_paragraph = (By.ID, "name")
-
-    # check_box menu item
-    check_box_menu_item = (By.ID, "item-1")    
-    check_box_title = (By.CSS_SELECTOR, "h1[class='text-center']")
+    
 
 
     def __init__(self, driver):
@@ -47,3 +51,16 @@ class ElementsPage(BasePage):
     def click_check_box_menu_item(self):
         self.click_element(self.check_box_menu_item)
         
+
+class ElementsCheckBoxPage(BasePage):
+    # check_box menu item    
+    check_box_title = (By.CSS_SELECTOR, "h1[class='text-center']")
+
+class ElementsRadioButtonPage(BasePage):
+    passed
+
+class ElementsWebTablesPage(BasePage):    
+    passed
+
+class ElementsLinksPage(BasePage): 
+    passed
