@@ -23,13 +23,14 @@ class TestDemoQAElementsPage:
         # click on the elements option
         elements_page = landing_page.click_elements_option()
         
-        elements_page.click_text_box_menu_item()
-        elements_page.enter_user_name("Edwin Taquichiri")
+        elements_text_box_page = elements_page.click_text_box_menu_item()
+
+        elements_text_box_page.enter_user_name("Edwin Taquichiri")
                                 
-        elements_page.click_submit_button()
+        elements_text_box_page.click_submit_button()
                 
         # assert that the text box page is displayed
-        assert "Edwin Taquichiri" in elements_page.get_user_name().text, "User name paragraph is not displayed"
+        assert "Edwin Taquichiri" in elements_text_box_page.get_user_name().text, "User name paragraph is not displayed"
 
     @allure.title("Test Smoke for Elements page")
     @allure.description("This test verifies Elements page for demoqa.")

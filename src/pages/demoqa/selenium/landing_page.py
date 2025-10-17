@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from utils.logger import get_logger
 from pages.demoqa.selenium.base_page import BasePage
 from pages.demoqa.selenium.elements_page import ElementsPage
+from pages.demoqa.selenium.elements_page import ElementsLinksPage
 from config.config import BASE_URL
 
 logger = get_logger(__name__)
@@ -39,3 +40,4 @@ class LandingPage(BasePage):
     
     def get_alerts_frames_windows_option(self):
         return self.find_element(self.alerts_frames_windows_option)
+        

@@ -1,0 +1,10 @@
+[
+    {
+        "link": "wathever",
+        "status_message": "200 and status text Created"
+    },
+    {
+        "link": "content",
+        "status_message": "201 and status text No Content"
+    }    
+]

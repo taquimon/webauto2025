@@ -1,0 +1,30 @@
+[
+    {
+        "link": "created",
+        "status_message": "201 and status text Created"
+    },
+    {
+        "link": "no-content",
+        "status_message": "204 and status text No Content"
+    },
+    {
+        "link": "moved",
+        "status_message": "301 and status text Moved Permanently"
+    },
+    {
+        "link": "bad-request",
+        "status_message": "400 and status text Bad Request"
+    },
+    {
+        "link": "unauthorized",
+        "status_message": "401 and status text Unauthorized"
+    },
+    {
+        "link": "forbidden",
+        "status_message": "403 and status text Forbidden"
+    },
+    {
+        "link": "not-found",
+        "status_message": "404 and status text Not Found"
+    }
+]

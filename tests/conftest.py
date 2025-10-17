@@ -2,6 +2,7 @@ import logging
 import pytest
 from selenium import webdriver
 from utils.logger import get_logger
+from utils.read_json_data import read_json_file
 
 logger = get_logger(__name__)
 
@@ -39,6 +40,11 @@ def driver():
 @pytest.fixture()
 def env(request):
     return request.config.getoption("--env")
+
+@pytest.fixture(params=["link"])
+def read_data(request):
+
+    return read_json_file(f"tests/data/{request.param}.json")
 
 def pytest_addoption(parser):
     parser.addoption(
