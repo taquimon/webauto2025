@@ -117,20 +117,5 @@ class ElementsLinksPage(BasePage):
     
     def click_link_option(self, link):
         self.scroll_to_element(self.locators_link[link])
-        self.click_element(self.locators_link[link])
-
-        # if link == "created":   
-        #     self.click_element(self.created_link)
-        # elif link == "no-content":
-        #     self.click_element(self.no_content_link)
-        # elif link == "moved":
-        #     self.click_element(self.moved_link)
-        # elif link == "bad-request":
-        #     self.click_element(self.bad_request_link)
-        # elif link == "unauthorized":
-        #     self.click_element(self.unauthorized_link)
-        # elif link == "forbidden":
-        #     self.click_element(self.forbidden_link)
-        # elif link == "not-found":
-        #     self.click_element(self.not_found_link)
+        self.click_element(self.locators_link[link])   
         

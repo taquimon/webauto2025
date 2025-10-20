@@ -45,6 +45,13 @@ class LoginPage:
 
 This separation of concerns makes the code more organized, readable, and easier to maintain. If the login form's structure changes, only the LoginFormFragment needs modification, not every page object that uses it.
 
+## Page Factory
+
+Page Factory is a method of implementing the Page Object Model (POM) in Selenium. It enhances POM by initializing web elements at runtime and providing additional features for better test efficiency.
+
+To support the Page Object pattern, Page Factory in Python uses a dictionary to declare all web elements, where dictionary keys act as WebElement or class member variables with extended WebElement methods.
+
+
 ## Page Object and Page Factory
 
 ### POM vs PageFactory
@@ -154,6 +161,69 @@ The five building blocks of the Screenplay Pattern are:
 - **Questions**, used to retrieve information from the system under test and the test execution environment
 
 <img src="./img/screenplay.png">
+
+### Screenpy
+> Installation
+
+```bash
+pip install screenpy
+```
+
+> Installation with plugins selenium, requests, allure
+
+```bash
+pip install "screenpy[selenium,requests,allure]"
+```
+## Actors
+Example:
+```python
+from screenpy import Actor
+
+actor = Actor.named("Edwin")
+```
+
+> demoqa example:
+```python
+import time
+from screenpy.actor import Actor
+from screenpy_selenium.abilities import BrowseTheWeb
+from screenpy_selenium.actions import Open
+from screenpy_selenium.questions import BrowserTitle
+from screenpy.resolutions import Equals
+from screenpy import See
+from screenpy_selenium.target import Target
+from screenpy_selenium.actions import Click
+from selenium.webdriver.common.by import By
+from screenpy_selenium.questions import Text
+
+def test_demoqa_elements_page():
+    # 1. Instantiate an Actor and give them the ability to browse the web
+    #    (using Selenium WebDriver, which ScreenPy Selenium handles).
+    actor = Actor.named("Edwin").who_can(BrowseTheWeb.using_chrome()) 
+    # You can also use .using_firefox() or provide a specific WebDriver instance.
+
+    # 2. The Actor performs an action: opening a URL.
+    actor.attempts_to(
+        Open.their_browser_on("https://demoqa.com/")
+    )
+
+    # 3. The Actor asks a question and asserts the answer.
+    actor.should(See.the(BrowserTitle(), Equals("DEMOQA")))
+
+    elements_link = Target.the("elements option").located_by("//h5[text()='Elements']")
+    actor.attempts_to(Click.on_the(elements_link))
+
+    text_box_menu_item = Target.the("text box menu item").located_by((By.ID, "item-0"))
+    actor.attempts_to(Click.on_the(text_box_menu_item))
+    
+    textbox_title = Target.the("text box title").located_by((By.CSS_SELECTOR, "h1[class='text-center']"))
+    actor.should(See.the(Text.of(textbox_title), Equals("Text Box")))
+
+    time.sleep(5)
+    # 4. Clean up: the Actor quits their browser.
+    actor.exit()
+```
+
 
 ## Ref.:
 

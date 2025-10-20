@@ -5,9 +5,9 @@ class ElementsPagePlay(BasePagePlay):
     def __init__(self, page: Page):
         self.page = page
         # locators
-        self.text_box : Locator = page.get_by_role("list").get_by_text("Text Box")
-        self.username : Locator = page.get_by_role("textbox", name="Full Name")
-        self.submit_button: Locator = page.get_by_role("button", name="Submit")
+        self.text_box : Locator = page.get_by_role("list").get_by_text("Text Box") # Fluent API
+        self.username : Locator = page.get_by_role("textbox", name="Full Name") # Fluent API
+        self.submit_button: Locator = page.get_by_role("button", name="Submit") # Fluent API
 
     def navigate(self):
         self.navigate_url(url="http://demoqa.com/elements")

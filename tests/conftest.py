@@ -3,6 +3,8 @@ import pytest
 from selenium import webdriver
 from utils.logger import get_logger
 from utils.read_json_data import read_json_file
+from screenpy_selenium.abilities import BrowseTheWeb
+from screenpy import Actor
 
 logger = get_logger(__name__)
 
@@ -36,6 +38,13 @@ def driver():
     yield driver
     
     driver.quit()
+
+
+@pytest.fixture()
+def actor():
+    actor = Actor.named("Edwin").who_can(BrowseTheWeb.using_chrome())
+    yield actor
+    actor.exit()
 
 @pytest.fixture()
 def env(request):
