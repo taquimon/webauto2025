@@ -20,16 +20,24 @@ def first_entry(request):
 # Arrange
 @pytest.fixture(scope="class")
 def driver():
-    if pytest.browser_type == "chrome":
-        driver = webdriver.Chrome()
-    elif pytest.browser_type == "firefox":
-        driver = webdriver.Firefox()
-    elif pytest.browser_type == "edge":
-        driver = webdriver.Edge()
-    elif pytest.browser_type == "safari":
-        driver = webdriver.Safari()
-    else:
-        raise ValueError(f"Browser {pytest.browser_type} is not supported")
+    # if pytest.browser_type == "chrome":
+    #     driver = webdriver.Chrome()
+    # elif pytest.browser_type == "firefox":
+    #     driver = webdriver.Firefox()
+    # elif pytest.browser_type == "edge":
+    #     driver = webdriver.Edge()
+    # elif pytest.browser_type == "safari":
+    #     driver = webdriver.Safari()
+    # else:
+    #     raise ValueError(f"Browser {pytest.browser_type} is not supported")
+    
+    options = webdriver.ChromeOptions()
+    options.add_argument('--ignore-ssl-errors=yes')
+    options.add_argument('--ignore-certificate-errors')
+    driver = webdriver.Remote(
+    command_executor='http://localhost:4444/wd/hub',
+    options=options
+    )
     
     driver.maximize_window()
     driver.implicitly_wait(10)
