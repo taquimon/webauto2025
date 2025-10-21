@@ -5,3 +5,9 @@ pytest-md-report==0.7.0
 pytest-playwright==0.7.1
 playwright>=1.55.0
 allure-pytest==2.15.0
+screenpy==4.2.5
+screenpy-adapter-allure==4.0.4
+screenpy-pyotp==4.0.1
+screenpy_requests==4.0.4
+screenpy_selenium==4.0.4
+selenium-page-factory==2.7
