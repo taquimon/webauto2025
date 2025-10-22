@@ -6,7 +6,7 @@ logger = get_logger(__name__)
 class TestDemoQALandingPage:
         
     
-    def test_demoqa_landing_page(self, driver, env):
+    def test_demoqa_landing_page(self, driver, env, log_test_name):
         """
         Test that the demoqa landing page is displayed with all options
         """                

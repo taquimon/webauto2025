@@ -12,7 +12,7 @@ class TestDemoQAElementsPage:
     @allure.tag("Landing", "Smoke", "Functional")
     @pytest.mark.functional
     @pytest.mark.smoke
-    def test_elements_text_box_page(self, driver, env):
+    def test_elements_text_box_page(self, driver, env, log_test_name):
         """
         Test that the elements text box page is displayed with all options
         """        
@@ -36,7 +36,7 @@ class TestDemoQAElementsPage:
     @allure.description("This test verifies Elements page for demoqa.")
     @allure.tag("Elements", "Functional")
     @pytest.mark.functional
-    def test_elements_check_box_page(self, driver, env):
+    def test_elements_check_box_page(self, driver, env, log_test_name):
         """
         Test that the elements check box page is displayed with all options
         """        
