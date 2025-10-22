@@ -11,3 +11,4 @@ screenpy-pyotp==4.0.1
 screenpy_requests==4.0.4
 screenpy_selenium==4.0.4
 selenium-page-factory==2.7
+pytest-html==4.0.2
