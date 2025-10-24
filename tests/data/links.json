@@ -13,7 +13,7 @@
     },
     {
         "link": "bad-request",
-        "status_message": "400 and status text Bad Request"
+        "status_message": "401 and status text Bad Request"
     },
     {
         "link": "unauthorized",
@@ -21,7 +21,7 @@
     },
     {
         "link": "forbidden",
-        "status_message": "403 and status text Forbidden"
+        "status_message": "405 and status text Forbidden"
     },
     {
         "link": "not-found",
