@@ -32,31 +32,39 @@ class TestDemoQAElementsLinksPage:
             "Wrong message response"
         )
 
-    # @pytest.mark.parametrize("link, status_message", [("created", "201 and status text Created"),
-    # ("no-content", "204 and status text No Content"),
-    # ("moved", "301 and status text Moved Permanently"),
-    # ("bad-request", "400 and status text Bad Request"),
-    # ("unauthorized", "401 and status text Unauthorized"),
-    # ("forbidden", "403 and status text Forbidden"), ("not-found", "404 and status text Not Found")])
-    # def test_elements_links_page_2(self, driver, env, link, status_message):
-    #     """
-    #     Test that the response message is displayed correctly for all links
-    #     """
+    @pytest.mark.parametrize(
+        "link, status_message",
+        [
+            ("created", "201 and status text Created"),
+            ("no-content", "204 and status text No Content"),
+            ("moved", "301 and status text Moved Permanently"),
+            ("bad-request", "400 and status text Bad Request"),
+            ("unauthorized", "401 and status text Unauthorized"),
+            ("forbidden", "403 and status text Forbidden"),
+            ("not-found", "404 and status text Not Found"),
+        ],
+    )
+    def test_elements_links_page_2(self, driver, env, link, status_message):
+        """
+        Test that the response message is displayed correctly for all links
+        """
 
-    #     # create the page object
-    #     landing_page = LandingPage(driver, env)
+        # create the page object
+        landing_page = LandingPage(driver, env)
 
-    #     # click on the elements option
-    #     elements_page = landing_page.click_elements_option()
+        # click on the elements option
+        elements_page = landing_page.click_elements_option()
 
-    #     elements_links_page = elements_page.click_links_option()
+        elements_links_page = elements_page.click_links_option()
 
-    #     elements_links_page.click_link_option(link)
+        elements_links_page.click_link_option(link)
 
-    #     expected_message = elements_links_page.get_response_message()
+        expected_message = elements_links_page.get_response_message()
 
-    #     # assert that the text box page is displayed
-    #     assert f"Link has responded with staus {status_message}" in expected_message, "Wrong message response"
+        # assert that the text box page is displayed
+        assert f"Link has responded with staus {status_message}" in expected_message, (
+            "Wrong message response"
+        )
 
     @pytest.mark.parametrize("read_data", ["links"], indirect=True)
     @pytest.mark.xfail(

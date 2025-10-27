@@ -9,6 +9,7 @@ services:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_NODE_MAX_SESSIONS=10
     ports:
       - "7900:7900"
 
